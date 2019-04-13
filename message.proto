@@ -1,0 +1,24 @@
+syntax = "proto3";
+package main;
+
+service WServer {
+	// 注册
+	rpc Ping(PingRequest) returns (PongRequest) {}
+	rpc Broadcast(BroadcastRequest) returns (OkRequest) {}
+}
+
+message PingRequest {
+	string name = 1;
+}
+
+message PongRequest {
+	string name = 1;
+}
+
+message BroadcastRequest {
+	bytes content = 1;
+}
+
+message OkRequest {
+	int32 v = 1;
+}
